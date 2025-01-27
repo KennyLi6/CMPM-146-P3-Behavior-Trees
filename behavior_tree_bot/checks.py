@@ -1,6 +1,6 @@
 import logging
 
-MAX_DISTANCE = 10
+MAX_DISTANCE = 8
 
 def if_neutral_planet_available(state):
     return any(state.neutral_planets())

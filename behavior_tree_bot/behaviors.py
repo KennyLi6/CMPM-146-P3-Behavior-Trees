@@ -2,7 +2,7 @@ import sys
 sys.path.insert(0, '../')
 from planet_wars import issue_order
 
-close_distance = 10
+close_distance = 8
 
 def attack_weakest_enemy_planet(state):
     enemy_planets = [planet for planet in state.enemy_planets()
