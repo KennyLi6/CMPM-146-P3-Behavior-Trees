@@ -18,8 +18,10 @@ def attack_weakest_enemy_planet(state):
         # No legal source or destination
         return False
     else:
+        required_ships = weakest_planet.num_ships + \
+                                 state.distance(strongest_planet.ID, weakest_planet.ID) * weakest_planet.growth_rate + 1
         # (4) Send half the ships from my strongest planet to the weakest enemy planet.
-        return issue_order(state, strongest_planet.ID, weakest_planet.ID, weakest_planet.num_ships*1.5)
+        return issue_order(state, strongest_planet.ID, weakest_planet.ID, required_ships)
 
 
 def spread_to_weakest_neutral_planet(state):
@@ -38,8 +40,10 @@ def spread_to_weakest_neutral_planet(state):
         # No legal source or destination
         return False
     else:
+        required_ships = weakest_planet.num_ships + \
+                                 state.distance(strongest_planet.ID, weakest_planet.ID) * weakest_planet.growth_rate + 1
         # (4) Send half the ships from my strongest planet to the weakest enemy planet.
-        return issue_order(state, strongest_planet.ID, weakest_planet.ID, weakest_planet.num_ships + 1)
+        return issue_order(state, strongest_planet.ID, weakest_planet.ID, required_ships)
 
 
 def spread_to_close_weakest_neutral_planet(state):
@@ -61,8 +65,10 @@ def spread_to_close_weakest_neutral_planet(state):
         # No legal source or destination
         return False
     else:
+        required_ships = weakest_planet.num_ships + \
+                                 state.distance(strongest_planet.ID, weakest_planet.ID) * weakest_planet.growth_rate + 1
         # (5) Send the required ships + 1 from my strongest planet.
-        return issue_order(state, strongest_planet.ID, weakest_planet.ID, weakest_planet.num_ships + 1)
+        return issue_order(state, strongest_planet.ID, weakest_planet.ID, required_ships)
     
 
 def attack_close_weakest_enemy_planet(state):
@@ -84,5 +90,7 @@ def attack_close_weakest_enemy_planet(state):
         # No legal source or destination
         return False
     else:
+        required_ships = weakest_planet.num_ships + \
+                                 state.distance(strongest_planet.ID, weakest_planet.ID) * weakest_planet.growth_rate + 1
         # (5) Send the required ships + 50% from my strongest planet.
-        return issue_order(state, strongest_planet.ID, weakest_planet.ID, weakest_planet.num_ships*1.5)
+        return issue_order(state, strongest_planet.ID, weakest_planet.ID, required_ships)
